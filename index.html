@@ -95,6 +95,26 @@
   </div>
 
   <script>
+    // <!--- Edited by AI [start] --->
+    // Function to load sample text
+    async function loadSampleText() {
+      try {
+        const response = await fetch('sample-text.txt');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const sampleText = await response.text();
+        textToIndexEl.value = sampleText;
+        log('Sample text loaded successfully.');
+      } catch (error) {
+        log('Error loading sample text: ' + error.message);
+      }
+    }
+
+    // Load sample text on page load
+    window.addEventListener('DOMContentLoaded', loadSampleText);
+    // <!--- Edited by AI [end] --->
+
     // ---------- DOM helpers ----------
     const textToIndexEl = document.getElementById('text-to-index');
     const indexBtn = document.getElementById('index-btn');
